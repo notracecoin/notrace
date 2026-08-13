@@ -5,6 +5,22 @@ import Icon from '@/components/ui/AppIcon';
 
 const posts = [
 {
+  id: 0,
+  category: 'Privacy',
+  categoryType: 'safe',
+  title: 'Remember When Tech Didn\'t Try to Steal Your Soul?',
+  excerpt:
+  'There\'s a strange agreement we\'ve all been forced into. Whether you\'re a college student scrolling TikTok until 3 AM or a seasoned adult trying to find your glasses in the dark, you download a simple phone tool—like a flashlight—and suddenly you\'re handing over your entire life story.',
+  author: 'Mohit Kanaujia',
+  date: 'Aug 13, 2026',
+  time: '04:18 AM',
+  readTime: '7 min read',
+  image: "https://img.rocket.new/generatedImages/rocket_gen_img_132b6a6ee-1773051894819.png",
+  imageAlt: 'Dark smartphone screen with privacy lock icon, moody low-light atmosphere, digital surveillance concept',
+  featured: true,
+  href: '#'
+},
+{
   id: 1,
   category: 'FTC Cases',
   categoryType: 'danger',
@@ -13,10 +29,11 @@ const posts = [
   'In 2013, the FTC settled with Goldenshores Technologies over the Brightest Flashlight Free app. The details are more disturbing than you\'d expect — and the practice is still happening.',
   author: 'Marcus Webb',
   date: 'Aug 8, 2026',
+  time: '10:00 AM',
   readTime: '8 min read',
   image: "https://img.rocket.new/generatedImages/rocket_gen_img_16ef74aa6-1784419446326.png",
   imageAlt: 'Flashlight beam in dark room, deep shadows, minimal lighting, investigative tone',
-  featured: true,
+  featured: false,
   href: '#'
 },
 {
@@ -28,6 +45,7 @@ const posts = [
   'Third-party keyboards request "full access" — which means everything you type, including passwords and credit card numbers, can be logged.',
   author: 'Priya Nair',
   date: 'Aug 5, 2026',
+  time: '09:30 AM',
   readTime: '6 min read',
   image: "https://images.unsplash.com/photo-1718627829047-b4c1016e7b9f",
   imageAlt: 'Dark keyboard with illuminated keys, moody low-light atmosphere, tech surveillance feel',
@@ -43,6 +61,7 @@ const posts = [
   'Dozens of free VPN apps have been caught selling user traffic data to third parties. The irony is brutal.',
   author: 'Tomás Reyes',
   date: 'Jul 29, 2026',
+  time: '11:00 AM',
   readTime: '10 min read',
   image: "https://images.unsplash.com/photo-1680992046626-418f7e910589",
   imageAlt: 'Digital network cables in dark server room, dim blue lighting, surveillance atmosphere',
@@ -58,6 +77,7 @@ const posts = [
   'You don\'t need to be a developer to audit your app permissions. Here\'s a practical guide anyone can follow in 5 minutes.',
   author: 'Amara Osei',
   date: 'Jul 22, 2026',
+  time: '08:00 AM',
   readTime: '5 min read',
   image: "https://img.rocket.new/generatedImages/rocket_gen_img_14971ac52-1766517936500.png",
   imageAlt: 'Smartphone in hands with privacy settings visible, soft dark background, calm atmosphere',
@@ -74,11 +94,11 @@ export default function BlogGrid() {
     <section className="py-14 px-5 md:px-8">
       <div className="max-w-7xl mx-auto space-y-8">
         {/* BENTO GRID AUDIT:
-             Array has 4 cards: [FeaturedPost, Post2, Post3, Post4]
-             Row 1: [col-1..2: FeaturedPost cs-2 rs-1] [col-3: Post2 cs-1]
-             Row 2: [col-1: Post3 cs-1] [col-2..3: Post4 cs-2]
-             Placed 4/4 cards ✓
-          */}
+              Array has 4 cards: [FeaturedPost, Post2, Post3, Post4]
+              Row 1: [col-1..2: FeaturedPost cs-2 rs-1] [col-3: Post2 cs-1]
+              Row 2: [col-1: Post3 cs-1] [col-2..3: Post4 cs-2]
+              Placed 4/4 cards ✓
+           */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {/* Featured post: cs-2 */}
           {featured && (
