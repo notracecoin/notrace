@@ -10,6 +10,7 @@ const navLinks = [
   { label: 'Why It Matters', href: '/#evidence' },
   { label: 'About', href: '/about' },
   { label: 'Blog', href: '/blog' },
+  { label: 'Donate', href: '/donate' },
 ];
 
 export default function Header() {
@@ -64,10 +65,10 @@ export default function Header() {
           {/* Desktop CTA */}
           <div className="hidden md:flex items-center gap-3">
             <Link
-              href="/#pricing"
-              className="text-sm font-semibold text-muted-foreground hover:text-foreground transition-colors"
+              href="/donate"
+              className="inline-flex items-center gap-1.5 text-sm font-bold bg-primary text-primary-foreground px-4 py-2 rounded-xl hover:opacity-90 transition-opacity"
             >
-              Support
+              Donate
             </Link>
           </div>
 

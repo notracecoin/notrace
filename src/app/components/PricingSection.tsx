@@ -2,6 +2,7 @@
 
 import React, { useEffect, useRef, useState } from 'react';
 import { useRouter } from 'next/navigation';
+import Link from 'next/link';
 import Icon from '@/components/ui/AppIcon';
 
 declare global {
@@ -14,6 +15,7 @@ export default function PricingSection() {
   const sectionRef = useRef<HTMLDivElement>(null);
   const [visible, setVisible] = useState(false);
   const [loading, setLoading] = useState(false);
+  const [error, setError] = useState('');
   const router = useRouter();
 
   useEffect(() => {
@@ -41,43 +43,57 @@ export default function PricingSection() {
 
   const handleDonate = async () => {
     setLoading(true);
+    setError('');
     const loaded = await loadRazorpayScript();
     if (!loaded) {
-      alert('Failed to load payment gateway. Please try again.');
+      setError('Failed to load payment gateway. Please try again.');
       setLoading(false);
       return;
     }
 
-    const options = {
-      key: process.env.NEXT_PUBLIC_RAZORPAY_KEY_ID || '',
-      amount: 10000, // ₹100 in paise — donor can edit in Razorpay modal
-      currency: 'INR',
-      name: 'notrace',
-      description: 'Support the privacy-first mission',
-      image: '/assets/notrace-logo.svg',
-      handler: () => {
-        router.push('/donate/confirmation');
-      },
-      prefill: {},
-      notes: {
-        purpose: 'notrace donation',
-      },
-      theme: {
-        color: '#00A854',
-      },
-      modal: {
-        ondismiss: () => {
-          setLoading(false);
-        },
-      },
-    };
+    try {
+      const res = await fetch('/api/razorpay/create-order', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ amount: 100 }), // default ₹100 — user can change in modal
+      });
+      const data = await res.json();
+      if (!res.ok || !data.id) {
+        setError(data.error || 'Could not create order. Please try again.');
+        setLoading(false);
+        return;
+      }
 
-    const rzp = new window.Razorpay(options);
-    rzp.on('payment.failed', () => {
+      const options = {
+        key: data.key,
+        amount: data.amount,
+        currency: data.currency,
+        order_id: data.id,
+        name: 'notrace',
+        description: 'Support the privacy-first mission',
+        image: '/assets/notrace-logo.svg',
+        handler: (response: any) => {
+          router.push('/donate/confirmation?amount=100');
+        },
+        prefill: {},
+        notes: { purpose: 'notrace donation' },
+        theme: { color: '#00A854' },
+        modal: {
+          ondismiss: () => setLoading(false),
+        },
+      };
+
+      const rzp = new window.Razorpay(options);
+      rzp.on('payment.failed', (resp: any) => {
+        setError(resp?.error?.description || 'Payment failed. Please try again.');
+        setLoading(false);
+      });
+      rzp.open();
       setLoading(false);
-    });
-    rzp.open();
-    setLoading(false);
+    } catch (err: any) {
+      setError('Something went wrong. Please try again.');
+      setLoading(false);
+    }
   };
 
   return (
@@ -103,23 +119,34 @@ export default function PricingSection() {
                 Every rupee goes directly toward building the next notrace app. No investors. No ad networks. Just you and us.
               </p>
             </div>
-            <button
-              onClick={handleDonate}
-              disabled={loading}
-              className="inline-flex items-center gap-2 bg-primary text-primary-foreground px-8 py-3.5 rounded-2xl text-sm font-bold hover:opacity-90 transition-opacity disabled:opacity-60 disabled:cursor-not-allowed"
-            >
-              {loading ? (
-                <>
-                  <Icon name="ArrowPathIcon" size={16} className="animate-spin" />
-                  Opening…
-                </>
-              ) : (
-                <>
-                  <Icon name="HeartIcon" size={16} variant="solid" />
-                  Donate
-                </>
-              )}
-            </button>
+
+            <div className="flex flex-col sm:flex-row gap-3">
+              <button
+                onClick={handleDonate}
+                disabled={loading}
+                className="inline-flex items-center gap-2 bg-primary text-primary-foreground px-8 py-3.5 rounded-2xl text-sm font-bold hover:opacity-90 transition-opacity disabled:opacity-60 disabled:cursor-not-allowed"
+              >
+                {loading ? (
+                  <>
+                    <Icon name="ArrowPathIcon" size={16} className="animate-spin" />
+                    Opening…
+                  </>
+                ) : (
+                  <>
+                    <Icon name="HeartIcon" size={16} variant="solid" />
+                    Donate
+                  </>
+                )}
+              </button>
+              <Link
+                href="/donate"
+                className="inline-flex items-center gap-2 border border-border text-foreground px-8 py-3.5 rounded-2xl text-sm font-bold hover:border-primary/50 transition-colors"
+              >
+                Choose amount
+              </Link>
+            </div>
+
+            {error && <p className="text-sm text-red-500">{error}</p>}
             <p className="text-xs text-muted-foreground">No account needed. No recurring charges. Just a one-time thank you.</p>
           </div>
         </div>
