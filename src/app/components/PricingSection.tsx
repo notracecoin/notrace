@@ -1,11 +1,20 @@
 'use client';
 
 import React, { useEffect, useRef, useState } from 'react';
+import { useRouter } from 'next/navigation';
 import Icon from '@/components/ui/AppIcon';
+
+declare global {
+  interface Window {
+    Razorpay: any;
+  }
+}
 
 export default function PricingSection() {
   const sectionRef = useRef<HTMLDivElement>(null);
   const [visible, setVisible] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const router = useRouter();
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -15,6 +24,61 @@ export default function PricingSection() {
     if (sectionRef?.current) observer?.observe(sectionRef?.current);
     return () => observer?.disconnect();
   }, []);
+
+  const loadRazorpayScript = (): Promise<boolean> => {
+    return new Promise((resolve) => {
+      if (typeof window !== 'undefined' && window.Razorpay) {
+        resolve(true);
+        return;
+      }
+      const script = document.createElement('script');
+      script.src = 'https://checkout.razorpay.com/v1/checkout.js';
+      script.onload = () => resolve(true);
+      script.onerror = () => resolve(false);
+      document.body.appendChild(script);
+    });
+  };
+
+  const handleDonate = async () => {
+    setLoading(true);
+    const loaded = await loadRazorpayScript();
+    if (!loaded) {
+      alert('Failed to load payment gateway. Please try again.');
+      setLoading(false);
+      return;
+    }
+
+    const options = {
+      key: process.env.NEXT_PUBLIC_RAZORPAY_KEY_ID || '',
+      amount: 10000, // ₹100 in paise — donor can edit in Razorpay modal
+      currency: 'INR',
+      name: 'notrace',
+      description: 'Support the privacy-first mission',
+      image: '/assets/notrace-logo.svg',
+      handler: () => {
+        router.push('/donate/confirmation');
+      },
+      prefill: {},
+      notes: {
+        purpose: 'notrace donation',
+      },
+      theme: {
+        color: '#00A854',
+      },
+      modal: {
+        ondismiss: () => {
+          setLoading(false);
+        },
+      },
+    };
+
+    const rzp = new window.Razorpay(options);
+    rzp.on('payment.failed', () => {
+      setLoading(false);
+    });
+    rzp.open();
+    setLoading(false);
+  };
 
   return (
     <section id="pricing" ref={sectionRef} className="py-20 md:py-28 px-5 md:px-8 bg-background">
@@ -39,13 +103,23 @@ export default function PricingSection() {
                 Every rupee goes directly toward building the next notrace app. No investors. No ad networks. Just you and us.
               </p>
             </div>
-            <a
-              href="#donate"
-              className="inline-flex items-center gap-2 bg-primary text-primary-foreground px-8 py-3.5 rounded-2xl text-sm font-bold hover:opacity-90 transition-opacity"
+            <button
+              onClick={handleDonate}
+              disabled={loading}
+              className="inline-flex items-center gap-2 bg-primary text-primary-foreground px-8 py-3.5 rounded-2xl text-sm font-bold hover:opacity-90 transition-opacity disabled:opacity-60 disabled:cursor-not-allowed"
             >
-              <Icon name="HeartIcon" size={16} variant="solid" />
-              Donate
-            </a>
+              {loading ? (
+                <>
+                  <Icon name="ArrowPathIcon" size={16} className="animate-spin" />
+                  Opening…
+                </>
+              ) : (
+                <>
+                  <Icon name="HeartIcon" size={16} variant="solid" />
+                  Donate
+                </>
+              )}
+            </button>
             <p className="text-xs text-muted-foreground">No account needed. No recurring charges. Just a one-time thank you.</p>
           </div>
         </div>
