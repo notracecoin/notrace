@@ -9,6 +9,7 @@ const navLinks = [
   { label: 'What We Build', href: '/#products' },
   { label: 'Why It Matters', href: '/#evidence' },
   { label: 'About', href: '/about' },
+  { label: 'Blog', href: '/blog' },
 ];
 
 export default function Header() {
