@@ -1,4 +1,5 @@
 import React from 'react';
+import type { Metadata } from 'next';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import Link from 'next/link';
@@ -41,6 +42,29 @@ const sections = [
     content: `We reserve the right to update this Cancellation and Refund Policy at any time. Changes will be effective upon posting to our website. We encourage you to review this policy periodically. Continued use of our services after changes constitutes acceptance of the updated policy.`,
   },
 ];
+
+export const metadata: Metadata = {
+  title: 'Cancellation & Refund Policy — notrace',
+  description: 'Clear refund policy for notrace donations. 7-day refund window for eligible requests. Fair, transparent cancellation terms.',
+  keywords: 'refund policy, cancellation policy, donation refunds, refund process',
+  openGraph: {
+    title: 'Cancellation & Refund Policy — notrace',
+    description: 'Clear refund policy for notrace donations. 7-day refund window for eligible requests.',
+    url: `${process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000'}/cancellation-refund`,
+    type: 'website',
+    images: [
+      {
+        url: '/assets/og-image.png',
+        width: 1200,
+        height: 630,
+        alt: 'notrace Cancellation & Refund Policy',
+      },
+    ],
+  },
+  alternates: {
+    canonical: `${process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000'}/cancellation-refund`,
+  },
+};
 
 export default function CancellationRefundPage() {
   return (

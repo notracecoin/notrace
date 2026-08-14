@@ -1,4 +1,5 @@
 import React from 'react';
+import type { Metadata } from 'next';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import Link from 'next/link';
@@ -45,6 +46,29 @@ const sections = [
     content: `If you have any questions about these Terms and Conditions, please contact us at legal@notrace.app or visit our Contact Us page.`,
   },
 ];
+
+export const metadata: Metadata = {
+  title: 'Terms & Conditions — notrace Legal Agreement',
+  description: 'Terms and conditions for using notrace services. Clear, transparent legal terms for privacy-first apps.',
+  keywords: 'terms and conditions, legal agreement, terms of service, user agreement',
+  openGraph: {
+    title: 'Terms & Conditions — notrace',
+    description: 'Clear, transparent legal terms for privacy-first apps.',
+    url: `${process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000'}/terms`,
+    type: 'website',
+    images: [
+      {
+        url: '/assets/og-image.png',
+        width: 1200,
+        height: 630,
+        alt: 'notrace Terms & Conditions',
+      },
+    ],
+  },
+  alternates: {
+    canonical: `${process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000'}/terms`,
+  },
+};
 
 export default function TermsPage() {
   return (
