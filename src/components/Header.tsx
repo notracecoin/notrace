@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import Link from 'next/link';
 
 import Icon from '@/components/ui/AppIcon';
@@ -10,7 +10,19 @@ const navLinks = [
   { label: 'Why It Matters', href: '/#evidence' },
   { label: 'About', href: '/about' },
   { label: 'Blog', href: '/blog' },
+  { label: 'Contact', href: '/contact' },
   { label: 'Donate', href: '/donate' },
+];
+
+const mobileLinks = [
+  { label: 'What We Build', href: '/#products' },
+  { label: 'Why It Matters', href: '/#evidence' },
+  { label: 'About', href: '/about' },
+  { label: 'Blog', href: '/blog' },
+  { label: 'Contact', href: '/contact' },
+  { label: 'Donate', href: '/donate' },
+  { label: 'Privacy Policy', href: '/privacy' },
+  { label: 'Terms & Conditions', href: '/terms' },
 ];
 
 export default function Header() {
@@ -89,7 +101,7 @@ export default function Header() {
           onClick={() => setMenuOpen(false)}
         >
           <div className="flex flex-col gap-2 mt-8" onClick={(e) => e?.stopPropagation()}>
-            {navLinks?.map((link) => (
+            {mobileLinks?.map((link) => (
               <Link
                 key={link?.href}
                 href={link?.href}
