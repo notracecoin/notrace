@@ -6,11 +6,15 @@ import Link from 'next/link';
 const sections = [
   {
     title: 'About Our Products',
-    content: `notrace is primarily a software and digital services company. Our core offerings — privacy-first applications and tools — are delivered digitally and do not require physical shipping. This policy applies to any physical merchandise, hardware, or tangible products that notrace may offer now or in the future.`,
+    content: `notrace is primarily a software and digital services company. Our core offerings — privacy-first applications and tools — are delivered digitally and do not require physical shipping. Importantly, notrace does not collect any type of user data — not a single piece of information is gathered, stored, or used. This policy applies to any physical merchandise, hardware, or tangible products that notrace may offer now or in the future.`,
   },
   {
     title: 'Digital Products and Services',
-    content: `All software applications, digital downloads, and online services provided by notrace are delivered electronically. There is no physical shipping involved. Access to digital products is typically granted immediately upon successful payment or donation. If you experience any issues accessing a digital product, please contact our support team.`,
+    content: `All software applications, digital downloads, and online services provided by notrace are delivered electronically. There is no physical shipping involved. Access to digital products is typically granted immediately upon successful payment or donation. We do not collect any usage data, behavioral data, or any other type of user information when you use our digital products. If you experience any issues accessing a digital product, please contact our support team.`,
+  },
+  {
+    title: 'No Data Collection',
+    content: `notrace does not collect any type of user data — not a single piece of information is gathered, stored, or processed. We do not track orders for marketing purposes, build customer profiles, collect browsing behavior, or use any user data in any way. Your interaction with notrace leaves no data footprint with us whatsoever.`,
   },
   {
     title: 'Physical Merchandise (if applicable)',

@@ -18,7 +18,7 @@ const sections = [
   },
   {
     title: 'Privacy and Data',
-    content: `Your use of our Services is also governed by our Privacy Policy, which is incorporated into these Terms by reference. notrace is built on the principle of minimal data collection. We do not sell, trade, or otherwise transfer your personally identifiable information to outside parties. Please review our Privacy Policy to understand our practices.`,
+    content: `notrace does not collect any type of user data — not a single piece of information is gathered, stored, or processed. We do not collect personal information, usage data, analytics, cookies, or any other form of user data. Your privacy is absolute: we have no data about you, we use no data about you, and we share no data about you. Please review our Privacy Policy for full details on our zero-collection commitment.`,
   },
   {
     title: 'Donations',

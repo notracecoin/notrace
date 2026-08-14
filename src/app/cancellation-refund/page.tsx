@@ -6,7 +6,7 @@ import Link from 'next/link';
 const sections = [
   {
     title: 'Overview',
-    content: `notrace is a privacy-first technology initiative. Our primary revenue comes from voluntary donations that support our mission to build privacy-respecting alternatives to data-harvesting apps. This policy outlines our approach to cancellations and refunds for donations and any future paid services.`,
+    content: `notrace is a privacy-first technology initiative. We do not collect any type of user data — not a single piece of information is gathered or stored. Our primary revenue comes from voluntary donations that support our mission to build privacy-respecting alternatives to data-harvesting apps. This policy outlines our approach to cancellations and refunds for donations and any future paid services.`,
   },
   {
     title: 'Donations — General Policy',
@@ -19,6 +19,10 @@ const sections = [
   {
     title: 'How to Request a Refund',
     content: `To request a refund, contact us at refunds@notrace.app with your transaction ID, the amount, the date of the transaction, and the reason for your refund request. We will review your request within 5 business days and notify you of our decision. If approved, refunds will be processed to the original payment method within 7–10 business days.`,
+  },
+  {
+    title: 'No Data Collection',
+    content: `notrace does not collect any type of user data — not a single piece of information is gathered, stored, or used. We do not track your transactions for marketing purposes, build user profiles, or use any payment-related data beyond what is strictly required to process your refund request. Your privacy is fully protected at every step.`,
   },
   {
     title: 'Subscription Services',

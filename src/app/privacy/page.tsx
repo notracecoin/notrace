@@ -6,43 +6,43 @@ import Link from 'next/link';
 const sections = [
   {
     title: 'Our Privacy Philosophy',
-    content: `notrace was built because we believe privacy is a fundamental right, not a feature. We practice what we preach: we collect the absolute minimum data required to operate our services, we never sell your data, and we are transparent about everything we do. This policy explains exactly what we collect, why, and how.`,
+    content: `notrace was built because we believe privacy is a fundamental right, not a feature. We practice what we preach: we do not collect any type of user data — not a single piece of information is gathered, stored, or used. We never sell your data because we never have it. This policy reflects our absolute commitment to zero data collection.`,
   },
   {
     title: 'Information We Collect',
-    content: `We collect only what is necessary. When you visit our website, we may collect basic analytics data such as page views and general geographic region — never individual tracking. When you make a donation, our payment processor (Razorpay) handles your payment information directly; we only receive confirmation of the transaction and the amount. We do not store your payment card details. If you contact us, we retain your message and email address to respond to you.`,
+    content: `We collect absolutely nothing. notrace does not collect, store, or process any personal data, usage data, analytics data, or any other type of user information whatsoever. We do not track page views, geographic regions, device information, IP addresses, or any other identifiers. Not a single byte of your data is collected — ever.`,
   },
   {
     title: 'How We Use Your Information',
-    content: `We use the information we collect to operate and improve our services, process donations, respond to inquiries, and understand how our content is being used at an aggregate level. We do not use your information for advertising, profiling, or any purpose beyond what is described here. We do not build behavioral profiles of our users.`,
+    content: `We do not use any user information because we do not collect any. There is no data to process, analyze, or use. We do not build user profiles, run analytics, serve targeted content, or perform any data processing of any kind. Your visit to notrace leaves no data footprint with us.`,
   },
   {
     title: 'Data Sharing',
-    content: `We do not sell, rent, or trade your personal information to third parties. We share data only with service providers who help us operate our platform (such as our payment processor), and only to the extent necessary. All third-party providers are contractually required to protect your data and use it only for the specified purpose.`,
+    content: `We do not share any user data with third parties because we do not collect any user data in the first place. There is nothing to sell, rent, trade, or share. Our zero-collection policy means your information never enters our systems at any point.`,
   },
   {
     title: 'Cookies and Tracking',
-    content: `We use minimal cookies — only those strictly necessary for the website to function. We do not use advertising cookies, cross-site tracking pixels, or third-party analytics that build individual profiles. If we use any analytics, it is privacy-preserving and aggregated only.`,
+    content: `We do not use any cookies, tracking pixels, analytics scripts, fingerprinting techniques, or any other tracking technology. We do not monitor your behavior, track your sessions, or identify you in any way. Your browsing on notrace is completely private and leaves no trace with us.`,
   },
   {
     title: 'Data Retention',
-    content: `We retain your data only as long as necessary to provide our services or as required by law. Donation records are retained for accounting and legal compliance purposes. Contact inquiries are retained for a reasonable period to handle follow-up questions. You may request deletion of your data at any time.`,
+    content: `Since we collect zero data, there is nothing to retain or delete. We have no databases of user information, no logs of user activity, and no records of individual visits. Our data retention policy is simple: we retain nothing because we collect nothing.`,
   },
   {
     title: 'Your Rights',
-    content: `You have the right to access the personal data we hold about you, request correction of inaccurate data, request deletion of your data, object to processing of your data, and request a copy of your data in a portable format. To exercise any of these rights, contact us at privacy@notrace.app. We will respond within 30 days.`,
+    content: `Because we collect no data about you, there is no personal data to access, correct, delete, or export. You have complete privacy by default — not as an option you need to exercise, but as the fundamental design of our service. If you have any questions about our zero-collection approach, contact us at privacy@notrace.app.`,
   },
   {
     title: 'Security',
-    content: `We implement industry-standard security measures to protect your information. All data transmission is encrypted using TLS. We regularly review our security practices and update them as needed. However, no method of transmission over the internet is 100% secure, and we cannot guarantee absolute security.`,
+    content: `The best data security is having no data to secure. Since notrace collects no user data, there is no user information at risk of breach, leak, or unauthorized access. We have designed our services from the ground up to operate without any user data collection.`,
   },
   {
     title: 'Children\'s Privacy',
-    content: `Our services are not directed to children under the age of 13. We do not knowingly collect personal information from children. If you believe we have inadvertently collected information from a child, please contact us immediately and we will delete it.`,
+    content: `Our services do not collect data from anyone — including children. Since we collect zero data from all users regardless of age, children's information is never at risk. Our no-collection policy provides the strongest possible protection for users of all ages.`,
   },
   {
     title: 'Changes to This Policy',
-    content: `We may update this Privacy Policy from time to time. We will notify you of significant changes by updating the date below and, where appropriate, by posting a notice on our website. We encourage you to review this policy periodically.`,
+    content: `We may update this Privacy Policy from time to time. However, our core commitment — zero data collection — will never change. We will notify users of any updates by revising the date below. We encourage you to review this policy periodically.`,
   },
 ];
 
@@ -73,9 +73,9 @@ export default function PrivacyPage() {
             <p className="text-xs font-bold uppercase tracking-widest text-primary mb-3">TL;DR</p>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
               {[
-                { label: 'We never sell your data', icon: '✕' },
-                { label: 'We collect the minimum necessary', icon: '↓' },
-                { label: 'You can delete your data anytime', icon: '⌫' },
+                { label: 'Zero data collected — ever', icon: '✕' },
+                { label: 'No tracking of any kind', icon: '↓' },
+                { label: 'No cookies, no analytics', icon: '⌫' },
               ]?.map((item) => (
                 <div key={item?.label} className="flex items-center gap-3">
                   <span className="w-8 h-8 rounded-lg bg-primary/10 text-primary flex items-center justify-center font-bold text-sm shrink-0">
