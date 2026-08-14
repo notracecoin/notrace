@@ -86,6 +86,39 @@ export default function TermsPage() {
               </div>
             ))}
 
+            {/* Business Information */}
+            <div className="card-base p-6 border border-border">
+              <p className="text-xs font-bold uppercase tracking-widest text-primary mb-4">Business Information</p>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-2 text-sm">
+                <div>
+                  <span className="font-semibold text-foreground">Business Name: </span>
+                  <span className="text-muted-foreground">M/s Engage Ad (MSME Registered)</span>
+                </div>
+                <div>
+                  <span className="font-semibold text-foreground">GST No: </span>
+                  <span className="text-muted-foreground">09GVRPK4451F2Z3</span>
+                </div>
+                <div className="md:col-span-2">
+                  <span className="font-semibold text-foreground">Address: </span>
+                  <span className="text-muted-foreground">356/340/1331, Ashok Vihar, Alam Nagar, Lucknow – 226017, UP</span>
+                </div>
+                <div>
+                  <span className="font-semibold text-foreground">Owner: </span>
+                  <span className="text-muted-foreground">Mohit Kanaujia</span>
+                </div>
+                <div>
+                  <span className="font-semibold text-foreground">Mobile: </span>
+                  <a href="tel:9369524385" className="text-muted-foreground hover:text-primary transition-colors">9369524385</a>
+                </div>
+                <div className="md:col-span-2">
+                  <span className="font-semibold text-foreground">Email: </span>
+                  <a href="mailto:mouhitkanaujia@gmail.com" className="text-muted-foreground hover:text-primary transition-colors">mouhitkanaujia@gmail.com</a>
+                  <span className="text-muted-foreground"> / </span>
+                  <a href="mailto:ind.engagead@gmail.com" className="text-muted-foreground hover:text-primary transition-colors">ind.engagead@gmail.com</a>
+                </div>
+              </div>
+            </div>
+
             {/* CTA */}
             <div className="card-base p-8 text-center">
               <p className="text-sm text-muted-foreground mb-4">

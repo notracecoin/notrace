@@ -112,6 +112,40 @@ export default function ContactPage() {
                 </p>
               </div>
 
+              {/* Business Information */}
+              <div className="card-base p-5 border border-border">
+                <p className="text-xs font-bold uppercase tracking-widest text-primary mb-3">
+                  Business Details
+                </p>
+                <div className="space-y-2 text-xs">
+                  <div>
+                    <span className="font-semibold text-foreground block">M/s Engage Ad</span>
+                    <span className="text-muted-foreground">MSME Registered</span>
+                  </div>
+                  <div>
+                    <span className="font-semibold text-foreground">GST: </span>
+                    <span className="text-muted-foreground">09GVRPK4451F2Z3</span>
+                  </div>
+                  <div>
+                    <span className="font-semibold text-foreground block">Address:</span>
+                    <span className="text-muted-foreground">356/340/1331, Ashok Vihar, Alam Nagar, Lucknow – 226017, UP</span>
+                  </div>
+                  <div>
+                    <span className="font-semibold text-foreground">Owner: </span>
+                    <span className="text-muted-foreground">Mohit Kanaujia</span>
+                  </div>
+                  <div>
+                    <span className="font-semibold text-foreground">Mobile: </span>
+                    <a href="tel:9369524385" className="text-muted-foreground hover:text-primary transition-colors">9369524385</a>
+                  </div>
+                  <div>
+                    <span className="font-semibold text-foreground block">Email:</span>
+                    <a href="mailto:mouhitkanaujia@gmail.com" className="text-muted-foreground hover:text-primary transition-colors block">mouhitkanaujia@gmail.com</a>
+                    <a href="mailto:ind.engagead@gmail.com" className="text-muted-foreground hover:text-primary transition-colors block">ind.engagead@gmail.com</a>
+                  </div>
+                </div>
+              </div>
+
               <div className="pt-2">
                 <p className="text-xs text-muted-foreground mb-3">Useful links</p>
                 <div className="flex flex-col gap-2">

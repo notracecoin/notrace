@@ -76,6 +76,41 @@ export default function Footer() {
           </div>
         </div>
 
+        {/* Business Information */}
+        <div className="py-6 px-5 md:px-6 mb-6 rounded-xl border border-border bg-secondary/30">
+          <p className="text-xs font-bold uppercase tracking-widest text-primary mb-3">Business Information</p>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-x-10 gap-y-1.5 text-xs text-muted-foreground">
+            <div className="flex gap-2">
+              <span className="font-semibold text-foreground shrink-0">Business:</span>
+              <span>M/s Engage Ad (MSME Registered)</span>
+            </div>
+            <div className="flex gap-2">
+              <span className="font-semibold text-foreground shrink-0">GST No:</span>
+              <span>09GVRPK4451F2Z3</span>
+            </div>
+            <div className="flex gap-2">
+              <span className="font-semibold text-foreground shrink-0">Address:</span>
+              <span>356/340/1331, Ashok Vihar, Alam Nagar, Lucknow – 226017, UP</span>
+            </div>
+            <div className="flex gap-2">
+              <span className="font-semibold text-foreground shrink-0">Owner:</span>
+              <span>Mohit Kanaujia</span>
+            </div>
+            <div className="flex gap-2">
+              <span className="font-semibold text-foreground shrink-0">Mobile:</span>
+              <a href="tel:9369524385" className="hover:text-primary transition-colors">9369524385</a>
+            </div>
+            <div className="flex gap-2 flex-wrap">
+              <span className="font-semibold text-foreground shrink-0">Email:</span>
+              <span className="flex flex-wrap gap-1">
+                <a href="mailto:mouhitkanaujia@gmail.com" className="hover:text-primary transition-colors">mouhitkanaujia@gmail.com</a>
+                <span>/</span>
+                <a href="mailto:ind.engagead@gmail.com" className="hover:text-primary transition-colors">ind.engagead@gmail.com</a>
+              </span>
+            </div>
+          </div>
+        </div>
+
         {/* Bottom row */}
         <div className="flex flex-col md:flex-row items-center justify-between gap-4 pt-6 border-t border-border">
           <span className="text-xs font-medium text-muted-foreground">
