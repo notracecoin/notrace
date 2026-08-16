@@ -1,4 +1,5 @@
 import React from 'react';
+import type { Metadata } from 'next';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import Link from 'next/link';
@@ -45,6 +46,29 @@ const sections = [
     content: `For any questions about shipping, delivery, or exchanges, please reach out to us at support@notrace.app or visit our Contact Us page. Our team typically responds within 1–2 business days.`,
   },
 ];
+
+export const metadata: Metadata = {
+  title: 'Shipping & Exchange Policy — notrace',
+  description: 'Shipping and exchange policy for notrace products. 14-day exchange window, free shipping info, and delivery details.',
+  keywords: 'shipping policy, exchange policy, delivery, returns, shipping information',
+  openGraph: {
+    title: 'Shipping & Exchange Policy — notrace',
+    description: 'Shipping and exchange policy for notrace products. 14-day exchange window and delivery details.',
+    url: `${process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000'}/shipping-exchange`,
+    type: 'website',
+    images: [
+      {
+        url: '/assets/og-image.png',
+        width: 1200,
+        height: 630,
+        alt: 'notrace Shipping & Exchange Policy',
+      },
+    ],
+  },
+  alternates: {
+    canonical: `${process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000'}/shipping-exchange`,
+  },
+};
 
 export default function ShippingExchangePage() {
   return (

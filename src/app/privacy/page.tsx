@@ -1,4 +1,5 @@
 import React from 'react';
+import type { Metadata } from 'next';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import Link from 'next/link';
@@ -45,6 +46,29 @@ const sections = [
     content: `We may update this Privacy Policy from time to time. However, our core commitment — zero data collection — will never change. We will notify users of any updates by revising the date below. We encourage you to review this policy periodically.`,
   },
 ];
+
+export const metadata: Metadata = {
+  title: 'Privacy Policy — notrace Zero Data Collection Commitment',
+  description: 'notrace privacy policy: We collect zero user data. No tracking, no analytics, no cookies. Complete privacy by design.',
+  keywords: 'privacy policy, data privacy, zero data collection, privacy commitment, user privacy rights',
+  openGraph: {
+    title: 'Privacy Policy — notrace',
+    description: 'We collect zero user data. No tracking, no analytics, no cookies. Complete privacy by design.',
+    url: `${process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000'}/privacy`,
+    type: 'website',
+    images: [
+      {
+        url: '/assets/og-image.png',
+        width: 1200,
+        height: 630,
+        alt: 'notrace Privacy Policy',
+      },
+    ],
+  },
+  alternates: {
+    canonical: `${process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000'}/privacy`,
+  },
+};
 
 export default function PrivacyPage() {
   return (
